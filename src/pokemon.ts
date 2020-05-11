@@ -22,7 +22,6 @@ export class Pokemon{
 }
 
 export function compareSpeed(a: Pokemon, b: Pokemon){
-	console.log(a.speed);
 	if(a.speed > b.speed){
 		return a.nom;
 	}
@@ -94,3 +93,8 @@ export function fight(a :Pokemon, b : Pokemon){
 
 // const pikachu = new Pokemon("Pikachu", 50);
 // console.log(pikachu.parler());
+
+//test Combat
+const slowpoke = new Pokemon("slowpoke", 2, 150, 30);
+const mew = new Pokemon("mew", 300, 500, 80);
+fight(mew, slowpoke);

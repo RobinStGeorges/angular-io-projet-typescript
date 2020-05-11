@@ -5,7 +5,8 @@
   "main": "pokemon.js",
   "scripts": {
     "test": "jest",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "start" : "npm run tsc | node .\\dist\\pokemon.js"
   },
   "repository": {
     "type": "git",

@@ -3,6 +3,8 @@
 import {attack, attaquer, fight, Pokemon} from '../src/pokemon.ts';
 // @ts-ignore
 import { compareSpeed } from '../src/pokemon.ts';
+// @ts-ignore
+import { getRandomInt } from '../src/pokemon.ts';
 
 const ratata = new Pokemon("ratata", 100, 100, 10);
 const slowpoke = new Pokemon("slowpoke", 2, 150, 30);
@@ -38,6 +40,16 @@ describe('un pokemon en attaque un autre', () => {
 );
 
 describe('combat entre deux pokemon', () => {
+	let MathRandom;
+
+	beforeEach(() => {
+		MathRandom = Math.random;
+		Math.random = () => 1;
+	})
+
+		afterEach(() => {
+			Math.random = Math.random;
+		})
 
 	it('should return slowpoke',
 		() => {
