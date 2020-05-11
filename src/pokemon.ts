@@ -1,20 +1,24 @@
-class Pokemon{
-	nom : string;
-	speed : number
+export class Pokemon{
+	public nom : string = "inconnu";
+	public speed : number = 1;
 	
-	constructor(nom : string, speed : number){
+	constructor(nom : string = "inconnu", speed : number = 1){
 		this.nom = nom;
 		this.speed = speed;
 	}
 	
-	parler(){
+	public parler(){
 		return this.nom+" !";
 	}
-	
+
+	public getNom(){
+		return this.nom;
+	}
 
 }
 
-function compareSpeed(a: Pokemon, b: Pokemon){
+export function compareSpeed(a: Pokemon, b: Pokemon){
+	console.log(a.speed);
 	if(a.speed > b.speed){
 		return a.nom;
 	}
@@ -23,5 +27,6 @@ function compareSpeed(a: Pokemon, b: Pokemon){
 	}
 }
 
-const pikachu = new Pokemon("Pikachu", 50);
-console.log(pikachu.parler());
+
+// const pikachu = new Pokemon("Pikachu", 50);
+// console.log(pikachu.parler());
