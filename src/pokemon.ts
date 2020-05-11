@@ -26,6 +26,14 @@ export function compareSpeed(a: Pokemon, b: Pokemon){
 	if(a.speed > b.speed){
 		return a.nom;
 	}
+	else if(a.speed == b.speed){
+		if(getRandomInt(50 > 25)){
+			return a.nom;
+		}
+		else{
+			return b.nom;
+		}
+	}
 	else{
 		return b.nom;
 	}
@@ -53,33 +61,34 @@ export function fight(a :Pokemon, b : Pokemon){
 	if(premierTour){
 		console.log("Le combat commence !");
 		premierTour = false;
+		if(compareSpeed(a, b) == a.nom){
+			var premierPokemon : Pokemon = a;
+			var secondPokemon : Pokemon = b;
+		}
+		else{
+			var premierPokemon : Pokemon = b;
+			var secondPokemon : Pokemon = a;
+		}
 	}
 
 	console.log("Nouveau tour !")
-	while(a.life > 0 && b.life > 0){
-		if(a.speed > b.speed){
-			console.log(a.nom+" attaque !");
-			attack(a,b);
-			if(b.life > 0){
-				attack(b, a);
-			}
+	while(premierPokemon.life > 0 && secondPokemon.life > 0){
+		console.log(premierPokemon.nom+" attaque !");
+		attack(premierPokemon,secondPokemon);
+		if(secondPokemon.life > 0){
+			console.log(secondPokemon.nom+" attaque !");
+			attack(secondPokemon, premierPokemon);
 		}
-		else{
-			console.log(b.nom+" attaque !")
-			attack(b, a);
-			if(a.life > 0){
-				attack(a, b);
-			}
-		}
+
 	}
 
-	if(a.life > 0){
-		console.log(a.nom+ " a gagné !");
-		return a.nom;
+	if(premierPokemon.life > 0){
+		console.log(premierPokemon.nom+ " a gagné !");
+		return premierPokemon.nom;
 	}
 	else{
-		console.log(b.nom+ " a gagné !");
-		return b.nom;
+		console.log(secondPokemon.nom+ " a gagné !");
+		return secondPokemon.nom;
 	}
 }
 

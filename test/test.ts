@@ -8,13 +8,20 @@ const ratata = new Pokemon("ratata", 100, 100, 10);
 const slowpoke = new Pokemon("slowpoke", 2, 150, 30);
 const mew = new Pokemon("mew", 300, 500, 80);
 
-describe('comparing two pokemon', () => {
-
+describe('comparing speed between two pokemon', () => {
 	it('should return ratata when comparing ratata with slowpoke',
 		() => {
 			expect(compareSpeed(ratata, slowpoke)).toBe("ratata");
 	}
-	)}
+	)
+
+	it('should return ratata when comparing ratata with slowpoke',
+		() => {
+			expect(compareSpeed(ratata, slowpoke)).toBe("ratata");
+		}
+	)
+
+}
 );
 
 describe('un pokemon en attaque un autre', () => {
@@ -23,7 +30,11 @@ describe('un pokemon en attaque un autre', () => {
 		() => {
 			expect(attack(ratata, slowpoke)).toBe(140);
 		}
-	)}
+	)
+
+
+
+}
 );
 
 describe('combat entre deux pokemon', () => {
